@@ -1,0 +1,194 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap'); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.chart-container {
+  width: calc(100% / 3); /* Répartit également l'espace pour chaque graphique */
+  max-width: 300px; /* Limite la largeur maximale pour une meilleure expérience utilisateur sur les grands écrans */
+  flex-shrink: 0; /* Empêche le rétrécissement excessif des graphiques sur les petits écrans */
+}
+
+
+.aparai{
+  opacity: 0; /* Commence invisible */
+  animation: fadeInOut 5s ease-in-out infinite; /* Utilise l'animation fadeInOut pour un cycle de 5 secondes, en boucle */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0; /* Début de l'animation : invisible */
+  }
+  50% {
+    opacity: 1; /* Milieu de l'animation : visible */
+  }
+  100% {
+    opacity: 0; /* Fin de l'animation : invisible */
+  }
+}
+@keyframes moveTop {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(50%) scale(0.8);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+@keyframes moveRight {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(50%) scale(0.8);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.animate-arrow {
+  animation: moveTop 2s infinite;
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.parent {
+  position: relative; /* Assurez-vous que le parent a une position définie pour que les éléments positionnés à l'intérieur puissent être positionnés correctement */
+}
+
+.parent::before {
+  content: ""; /* Ajoute un pseudo-élément avant le contenu du parent */
+  position: absolute; /* Positionne l'élément de façon absolue par rapport au parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); /* Applique un dégradé gris légèrement transparent sur l'image de fond */
+  z-index: 1; /* Assure que le pseudo-élément est en arrière-plan */
+}
+
+.parent img {
+  position: relative; /* Assurez-vous que l'image a une position relative pour que d'autres éléments puissent être positionnés par-dessus */
+  z-index: 2; /* Assure que l'image est au premier plan */
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+   
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .pagination li {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 3px 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  
+  .pagination .active {
+    background-color: #a0aec0;
+    color: #fff;
+  }
+  
+
+  .truncate-25 {
+    max-width: 25ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+  
+  .pagination-item {
+    display: inline-block;
+    padding: 0.23em 0.72em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .pagination-item.active {
+    border-color: #a0aec0; /* Couleur de la bordure pour l'élément actif */
+    background-color: #a0aec0; /* Couleur de l'arrière-plan pour l'élément actif */
+    color: white; /* Couleur du texte pour l'élément actif */
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 8px;
+    position: relative;
+  }
+  
+  .active-link {
+    position: relative;
+  }
+  
+  .active-link:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 1.7px;
+    width: 90%;
+    background-color: #d5a638;
+  }
+
+  tr:hover {
+    background-color: #e2e8f0;
+    transform: translateX(-6px);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .highlight {
+    background-color: yellow;
+  }
+  
+  

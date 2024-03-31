@@ -42,8 +42,8 @@ const Login = () => {
             <div className='w-1/2 flex flex-col px-[280px] bg-[#1A1C4B] justify-center text-white'>
                 <div className='flex flex-col'>
                     <span className='text-white font-bold text-[50px]'>Login</span>
-                    <span className='mt-3'>Please enter your email and password to access your</span>
-                    <span>account.</span>
+                    <span className='mt-1 text-[12px]'>Please enter your email and password to access your account.</span>
+                    <span></span>
                 </div>
                 <div className='flex flex-col mt-8'>
 

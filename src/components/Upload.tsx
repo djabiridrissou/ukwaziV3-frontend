@@ -42,8 +42,9 @@ const UploadPage = ({ visible, handleCancel }: any) => {
             footer={null}
         >
             <Dragger {...props}>
-                <p className="ant-upload-drag-icon">
-                    <InboxOutlined />
+                <p className="ant-upload-drag-icon items-center justify-center flex">
+                    {/* <InboxOutlined /> */}
+                    <img src="/images/file.png" alt="" className='w-[150px]' />
                 </p>
                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
                 <p className="ant-upload-hint">

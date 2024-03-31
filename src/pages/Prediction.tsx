@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fileData } from "../utils/variables";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Chart, Pie } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -55,7 +55,7 @@ const Prediction = () => {
                 weight: 'bold',
                 size: 16,
             },
-            formatter: (value: any, context: any) => {
+            formatter: (value: any) => {
                 return (value.toFixed(2)) + '%';
             },
         };
@@ -89,7 +89,7 @@ const Prediction = () => {
                 weight: 'bold',
                 size: 16,
             },
-            formatter: (value: any, context: any) => {
+            formatter: (value: any) => {
                 return (value.toFixed(2)) + '%';
             },
         };
@@ -124,18 +124,18 @@ const Prediction = () => {
                 weight: 'bold',
                 size: 16,
             },
-            formatter: (value: any, context: any) => {
+            formatter: (value: any) => {
                 return (value.toFixed(2)) + '%';
             },
         };
     });
 
-    const options = {
-        plugins: {
+    const options: any = {
+        plugins:  {
             datalabels: {
                 color: 'black',
                 align: 'center',
-                formatter: (value: any, context: any) => {
+                formatter: (context: any) => {
                     return context.dataset.data[context.dataIndex] + '%';
                 },
                 font: {
@@ -146,7 +146,7 @@ const Prediction = () => {
         },
     };
 
-    const plugins = [ChartDataLabels];
+    const plugins: any = [ChartDataLabels];
 
     return (
         <div className="flex flex-col">

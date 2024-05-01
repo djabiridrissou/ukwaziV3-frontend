@@ -44,7 +44,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
       >
         {sidebarOpen && (
           <div className="flex items-center mt-4 justify-center">
-            <span className="text-[30px] text-white font-bold overflow-x-hidden">UKWAZI</span>
+            <span className="text-[30px] text-white font-bold overflow-x-hidden">CMPJ</span>
             <span className="bg-white h-2 w-2 rounded-full ml-1"></span>
           </div>
         )}
@@ -58,11 +58,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
         >
           {/* Dashboard */}
           <Menu.Item key="dashboard" icon={<IoMdHome size={17} />}>
-            <Link to={"/home"}>Dashboard</Link>
+            <Link to={"/home"}>Tableau de Bord</Link>
           </Menu.Item>
-          {/*  <Menu.Item key="files" icon={<FileTextOutlined size={17} />}>
-            <Link to={""}>Files</Link>
-          </Menu.Item> */}
 
           {/* sections */}
           {/* <Menu.SubMenu
@@ -75,8 +72,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
       </Sider>
       <div className="absolute bottom-1 items-center justify-center flex my-4 w-full mx-0 md:mx-auto ">
         <button onClick={() => navigate("/")} className="flex gap-2 jsutify-center items-center text-white text-[10px] md:text-[12px] font-bold">
+          {sidebarOpen && (
+            <span className="hover:text-gray-300">Déconnexion</span>
+          )}
           <LogoutOutlined />
-          <span className="hover:text-gray-300">Log out</span>
         </button>
       </div>
     </Layout>

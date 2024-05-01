@@ -1,9 +1,9 @@
 {
-  "name": "ukwazi",
-  "description": "UKWAZI V3",
-  "author": "IDRISSOU Djabir",
+  "name": "rx",
+  "description": "RX+",
+  "author": "Dev4Diversity",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,17 +1,54 @@
-import { useEffect, useState } from "react";
-import Loading from "./Loading";
+import { useState, useEffect, createContext, useContext } from "react";
 
+const AuthContext = createContext(null);
 
-function AuthProvider({ children }: any) {
-  const [isLoading] = useState(true);
+const AuthProvider = ({ children }: any) => {
+  const [authState, setAuthState] = useState({
+    isAuthenticated: false,
+    token: null,
+    user: null,
+  } as any);
 
   useEffect(() => {
-    
+    const storedToken = localStorage.getItem("authToken");
+    if (storedToken) {
+      setAuthState({
+        isAuthenticated: true,
+        token: storedToken,
+        user: JSON.parse(localStorage.getItem("user") ?? '') || null,
+      });
+    }
   }, []);
 
-  return (
-    <Loading isLoading={isLoading} children={children} />
-  );
-}
+  const makeLogin = (token: string, user: any) => {
+    localStorage.setItem("authToken", token);
+    localStorage.setItem("user", JSON.stringify(user));
+    setAuthState({
+      isAuthenticated: true,
+      token,
+      user,
+    });
+  };
 
-export default AuthProvider;
+  const makeLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
+    setAuthState({
+      isAuthenticated: false,
+      token: null,
+      user: null,
+    });
+  };
+
+  return (
+    <AuthContext.Provider value={{ authState, makeLogin, makeLogout } as any}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+export { AuthProvider, useAuth };

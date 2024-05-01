@@ -1,3 +1,4 @@
+/* Djabir IDRISSOU */
 import { Route, Routes } from "react-router-dom";
 import './index.css'
 import { ToastContainer } from 'react-toastify';
@@ -7,7 +8,7 @@ import {
   Layout,
   Login,
   ForgotPassword,
-  Prediction,
+  CreateAccount
 } from "./routes/routes";
 
 function App() {
@@ -18,9 +19,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/create-account" element={<CreateAccount />} />
           <Route path="/home" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="prediction" element={<Prediction />} />
           </Route>
         </Routes>
         <ToastContainer />

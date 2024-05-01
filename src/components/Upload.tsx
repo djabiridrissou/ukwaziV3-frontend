@@ -48,7 +48,7 @@ const UploadPage = ({ visible, handleCancel }: any) => {
                 </p>
                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
                 <p className="ant-upload-hint">
-                    {/* Ajoutez ici un message d'indication sur le type de fichiers acceptés */}
+                    
                 </p>
             </Dragger>
             <div className='mt-4 w-full flex items-center justify-center'>
